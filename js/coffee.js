@@ -52,7 +52,7 @@
         var autocomplete_data_element = 'ui-autocomplete';
 
         $.ajax({
-          url: drupalSettings.path.basePath + 'admin/coffee/get-data',
+          url: drupalSettings.path.baseUrl + 'admin/coffee/get-data',
           dataType: 'json',
           success: function (data) {
             DrupalCoffee.dataset = data;
