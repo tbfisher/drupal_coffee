@@ -27,11 +27,12 @@ function coffee_coffee_commands() {
   $em = \Drupal::entityManager();
   // Only use node types the user has access to.
   foreach ($em->getStorage('node_type')->loadMultiple() as $type) {
-    if ($em->getAccessControlHandler('node')->createAccess($type->type)) {
+    $node_type = $type->bundle();
+    if ($em->getAccessControlHandler('node')->createAccess($node_type)) {
       $commands[] = array(
-        'value' => Url::fromUri('base://node/add/' . $type->type)->toString(),
-        'label' => $type->type,
-        'command' => $command . ' ' . $type->type,
+        'value' => Url::fromUri('base://node/add/' . $node_type)->toString(),
+        'label' => $node_type,
+        'command' => $command . ' ' . $node_type,
       );
     }
   }
