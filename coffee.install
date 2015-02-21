@@ -10,7 +10,7 @@
 function coffee_install() {
 
   // Set menu: admin as default menu.
-  $config = \Drupal::config('coffee.configuration');
+  $config = \Drupal::configFactory()->getEditable('coffee.configuration');
   $config->set('coffee_menus', array('admin'));
   $config->save();
 

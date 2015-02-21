@@ -55,7 +55,7 @@ class CoffeeConfigurationForm extends ConfigFormBase {
    * Implements \Drupal\Core\Form\FormInterface::submitForm().
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $this->config('coffee.configuration')
+    \Drupal::configFactory()->getEditable('coffee.configuration')
     ->set('coffee_menus', $form_state->getValue('coffee_menus'))
     ->save();
 
